@@ -118,8 +118,6 @@ void Compressor::Compress(FILE* _table)
 
 }
 
-
-
 void Compressor::CreateTable(Node* head)
 {
 	if (head->left != NULL)
@@ -173,5 +171,3 @@ void Compressor::SaveToFile()
 	}
 	fclose(fpout);
 }
-
-

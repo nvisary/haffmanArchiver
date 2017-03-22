@@ -3,9 +3,9 @@
 
 class MyVector {
 private:
-	bool* massiv;
+	bool* array;
 	int MySize;
-	int tec;
+	int cur;
 	void ReSize();
 public:
 	MyVector();
@@ -15,7 +15,6 @@ public:
 	void push_back(bool value);
 	int size();
 	void clear();
-	void print();
 };
 
 

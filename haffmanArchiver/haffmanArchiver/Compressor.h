@@ -5,9 +5,7 @@
 #include <map>
 #include <list>
 #include <vector>
-/**
-* Need to compressing files
-*/
+
 class Compressor{
 private:
 	class Node

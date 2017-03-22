@@ -1,25 +1,25 @@
-#include "myvector.h"
+#include "MyVector.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 MyVector::MyVector()
 {
-	tec = 100;
-	massiv = (bool*)malloc(tec * sizeof(bool));
+	cur = 100;
+	array = (bool*)malloc(cur * sizeof(bool));
 	MySize = 0;
 }
 
 MyVector::~MyVector()
 {
-	free(massiv);
+	free(array);
 }
 
 void MyVector::push_back(bool value)
 {
-	if (MySize == tec || massiv == NULL)
+	if (MySize == cur || array == NULL)
 		ReSize();
 
-	massiv[MySize] = value;
+	array[MySize] = value;
 	MySize++;
 }
 
@@ -29,7 +29,7 @@ MyVector& MyVector::operator=(const MyVector &a)
 
 	for (int i = 0; i < MySize; i++)
 	{
-		massiv[i] = a.massiv[i];
+		array[i] = a.array[i];
 	}
 
 	return *this;
@@ -41,7 +41,7 @@ bool MyVector::operator==(const MyVector &a)
 	{
 		for (int i = 0; i < MySize; i++)
 		{
-			if (massiv[i] == a.massiv[i]) continue;
+			if (array[i] == a.array[i]) continue;
 			else return false;
 		}
 		return true;
@@ -51,25 +51,17 @@ bool MyVector::operator==(const MyVector &a)
 		return false;
 	}
 }
-void MyVector::print()
-{
-	for (int i = 0; i < MySize; i++)
-	{
-		printf("%d", massiv[i]);
-	}
-
-}
 void MyVector::ReSize()
 {
 
-	if (massiv == NULL)
+	if (array == NULL)
 	{
-		massiv = (bool*)malloc(sizeof(bool)*tec);
+		array = (bool*)malloc(sizeof(bool) * cur);
 	}
 	else
 	{
-		tec *= 2;
-		massiv = (bool*)realloc(massiv, sizeof(bool)* tec);
+		cur *= 2;
+		array = (bool*)realloc(array, sizeof(bool)* cur);
 	}
 }
 

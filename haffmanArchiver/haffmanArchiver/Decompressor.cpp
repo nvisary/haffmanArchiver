@@ -1,6 +1,5 @@
 #include "Decompressor.h"
 
-
 Decompressor::Decompressor(FILE* _in, FILE* _out)
 {
 	fpin = _in;
